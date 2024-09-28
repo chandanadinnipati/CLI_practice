@@ -33,11 +33,11 @@ Processes and Ports
 --------------------
 1.List your browser's process ids (pid) and parent process ids(ppid)
 
-ps aux | grep 'firefox' | awk '{print "PID: " $2, "PPID: " $3}'   # ps aux lists processes, grep '[b]rowser' filters for the browser, and awk prints PID and PPID.
+ps aux  #gives process ids and ppid
 
 2.Stop the browser application from the command line
 
-killall firefox chrome  # killall stops all instances of a specified process.(killall browser-name)
+killall firefox chrome  # killall stops all instances of a specified process.
 
 3.List the top 3 processes by CPU usage.
 
@@ -73,10 +73,7 @@ Managing Software
 
 sudo apt-get install htop vim nginx   # apt-get install installs specified packages.
 
-
-
 sudo apt-get remove nginx   # apt-get remove uninstalls the specified package
-
 
 Misc
 -------
@@ -90,7 +87,7 @@ nslookup google.com   #nslookup queries DNS to find the IP address of a domain.
 
 3.How to check if Internet is working using CLI?
 
-ping -c 4 google.com   #ping -c 4 sends 4 packets to check connectivity to google.com.
+ping  google.com   
 
 4.Where is the node command located? What about code
 
