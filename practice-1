@@ -1,0 +1,58 @@
+mkdir -p hello/five/six     # mkdir is used to create new directory.-p create all the directories according to the path 
+
+cd ~/hello/five/six
+
+touch c.txt     # touch command is used to create to create a new empty file . created c.txt inside 'six'  (touch file_name)
+
+mkdir seven
+
+cd seven
+
+touch error.log
+
+cd ~/hello         #comes to this path from current directory
+
+mkdir one
+
+touch a.txt b.txt      # Adding two files 'a.txt' and 'b.txt' in 'one' directory
+
+mkdir two
+
+cd two
+
+touch d.txt
+
+mkdir three
+
+cd three
+
+touch e.txt
+
+mkdir four
+
+cd four
+
+touch access.log
+
+cd ~/hello
+
+
+find hello -type f -name "log.txt" -delete      # this commmand finds all files ('type f') under the hello directory with '.log' extension' and deletes them
+
+cd one
+
+echo "Unix is a family of multitasking, multiuser computer operating systems that derive from the original AT&T Unix, development starting in the 1970s at the Bell Labs research center by Ken Thompson, Dennis Ritchie, and others" > a.txt 
+# echo is used to write text into file and the text is redirected ('>') into the a.txt file
+
+
+cd ..
+
+rm -r five   # rm -r is used to delete non empty directories rmdir is used to delete empty directories
+
+mv one uno    # mv is used to remane old directory/file name to new name
+
+cd uno
+
+mv a.txt two  # mv is also used to move directory/file to another location. here a.txt is moved into 'two' directory
+
+cd ../..
