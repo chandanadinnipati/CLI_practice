@@ -36,8 +36,7 @@ touch access.log
 
 cd ~/hello
 
-
-find hello -type f -name "log.txt" -delete      # this commmand finds all files ('type f') under the hello directory with '.log' extension' and deletes them
+find . -name "*.log" -type f -delete      # this commmand finds all files ('type f') with '.log' extension' and deletes them
 
 cd one
 
