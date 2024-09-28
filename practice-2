@@ -1,0 +1,100 @@
+1.Download the contents of "Harry Potter and the Goblet of fire" using the command line from here
+
+wget -O goblet_of_fire.txt https://raw.githubusercontent.com/bobdeng/owlreader/master/ERead/assets/books/Harry%20Potter%20and%20the%20Goblet%20of%20Fire.txt    # The wget command downloads files from the web. -O specifies the output filename.
+
+2.Print the first three lines in the book
+
+head -3 goblet_of_fire.txt   # The head command prints the first few lines of a file. -3 specifies the number of lines.
+
+3.Print the last 10 lines in the book
+
+tail -10 goblet_of_fire.txt   # The tail command prints the last few lines of a file. -10 specifies the number of lines.
+
+4.How many times do the following words occur in the book?
+Harry
+Ron
+Hermione
+Dumbledore
+
+grep -o 'Harry' goblet_of_fire.txt | wc -l
+grep -o 'Ron' goblet_of_fire.txt | wc -l
+grep -o 'Hermione' goblet_of_fire.txt | wc -l
+grep -o 'Dumbledore' goblet_of_fire.txt | wc -l    #grep -o finds all occurrences of a word and wc -l counts the number of lines (occurrences).
+
+5.Print lines from 100 through 200 in the book
+
+head -300 goblet_of_fire.txt |tail -200
+
+6.How many unique words are present in the book?
+
+uniq goblet_of_fire.txt | wc -w   
+
+Processes and Ports
+--------------------
+1.List your browser's process ids (pid) and parent process ids(ppid)
+
+ps aux | grep 'firefox' | awk '{print "PID: " $2, "PPID: " $3}'   # ps aux lists processes, grep '[b]rowser' filters for the browser, and awk prints PID and PPID.
+
+2.Stop the browser application from the command line
+
+killall firefox chrome  # killall stops all instances of a specified process.(killall browser-name)
+
+3.List the top 3 processes by CPU usage.
+
+ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%cpu | head -4   # ps -eo formats the output, --sort=-%cpu sorts by CPU usage, and head -n 4 limits to top 3 processes.
+
+4.List the top 3 processes by memory usage.
+
+ps -eo pid,ppid,cmd,%cpu,%mem --sort=-%mem | head -4   #--sort=-%mem sorts by memory usage.
+
+5.Start a Python HTTP server on port 8000
+
+python3 -m http.server 8000  #python3 -m http.server 8000 starts an HTTP server on port 8000.
+
+6.Open another tab. Stop the process you started in the previous step
+
+pkill -f "python3 -m http.server 8000"  # pkill -f finds and kills the process by its command linesudo python3 -m http.server 90
+
+7.Start a Python HTTP server on port 90
+
+sudo python3 -m http.server 90   #Ports below 1024 require sudo (superuser permissions).
+
+8.Display all active connections and the corresponding TCP / UDP ports.
+
+netstat -tuln         # netstat -tuln lists all TCP and UDP connections
+
+9.Find the pid of the process that is listening on port 5432
+
+sudo lsof -i :5432    # lsof -i :5432 lists the process listening on port 5432.
+
+
+Managing Software
+----------------- 
+
+sudo apt-get install htop vim nginx   # apt-get install installs specified packages.
+
+
+
+sudo apt-get remove nginx   # apt-get remove uninstalls the specified package
+
+
+Misc
+-------
+1.What's your local IP address?
+
+ifconfig | grep 'inet ' | awk '{print $2}'   #ifconfig shows network configuration, grep 'inet ' filters IP addresses, and awk extracts the IP
+
+2.Find the IP address of google.com
+
+nslookup google.com   #nslookup queries DNS to find the IP address of a domain.
+
+3.How to check if Internet is working using CLI?
+
+ping -c 4 google.com   #ping -c 4 sends 4 packets to check connectivity to google.com.
+
+4.Where is the node command located? What about code
+
+which node  # This command will return the path of the node executable file. node is the command to run Node.js, a JavaScript runtime. For example, it might return something like /usr/bin/node, which indicates that the Node.js executable is located in the /usr/bin directory.
+
+which code   #This command will return the path of the code executable file. code is the command to run Visual Studio Code, a popular code editor. For example, it might return something like /usr/bin/code, which indicates that the Visual Studio Code executable is located in the /usr/bin directory.
+
